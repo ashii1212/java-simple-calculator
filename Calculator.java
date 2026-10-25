@@ -4,6 +4,9 @@ public class Calculator {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println("=== Simple Calculator ===");
+
         int choice;
 
         do {
