@@ -1,11 +1,9 @@
-
 import java.util.Scanner;
 
 public class Calculator {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         int choice;
 
         do {
@@ -30,31 +28,40 @@ public class Calculator {
             System.out.print("Second number: ");
             double b = scanner.nextDouble();
 
-            if (choice == 4 && b == 0) {
+            if (choice == 4 && b == 0.0) {
                 System.out.println("Cannot divide by zero.");
                 continue;
             }
 
             double result = calculate(choice, a, b);
+            String operator;
 
-            String operator = switch (choice) {
-                case 1 -> "+";
-                case 2 -> "-";
-                case 3 -> "*";
-                case 4 -> "/";
-                default -> "";
-            };
+            switch (choice) {
+                case 1:
+                    operator = "+";
+                    break;
+                case 2:
+                    operator = "-";
+                    break;
+                case 3:
+                    operator = "*";
+                    break;
+                case 4:
+                    operator = "/";
+                    break;
+                default:
+                    continue;
+            }
 
             System.out.printf("%.2f %s %.2f = %.2f%n",
                     a, operator, b, result);
 
-        } while (choice != 5);
+        } while (true);
 
         scanner.close();
     }
 
     static void printMenu() {
-        System.out.println("\n=== Simple Calculator ===");
         System.out.println("1. Add");
         System.out.println("2. Subtract");
         System.out.println("3. Multiply");
@@ -73,7 +80,7 @@ public class Calculator {
             case 4:
                 return a / b;
             default:
-                return 0;
+                return 0.0;
         }
     }
 }
