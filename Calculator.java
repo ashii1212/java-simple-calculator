@@ -65,6 +65,7 @@ public class Calculator {
     }
 
     static void printMenu() {
+        System.out.println();
         System.out.println("1. Add");
         System.out.println("2. Subtract");
         System.out.println("3. Multiply");
